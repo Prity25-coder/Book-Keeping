@@ -1,10 +1,13 @@
 import app from "./src/app.js";
 import ENV_CONFIG from "./src/config/env.config.js";
+import { connectMongoose } from "./src/config/mongooseConfig.js";
 
 const { port } = ENV_CONFIG ;
 
 const server = app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`);
+  connectMongoose();
+
 });
 
 server.on("error", (err) => {
