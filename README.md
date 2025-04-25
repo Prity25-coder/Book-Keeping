@@ -1,36 +1,37 @@
 
-# 📚📗Book-keeping service
+# 📚Book-keeping service
   - This is Book-keeping inventory management for libraries backend application.
 
-## Features
-  -**Authentication & Authorization:**
+
+## 🐱‍🏍Features
+  **Authentication & Authorization:**
   - Role-based access control (author, borrower, admin)
   - Protected routes with middleware
   - JWT based authentication
 
-  -**Book Management:**
+  **Book Management:**
   - CRUD operations for books
   - Image upload to Firebase Storage
   - Association with authors and libraries
 
-  -**User Management:**
+  **User Management:**
   - Registration and login
   - Different roles (author, borrower, admin)
 
-  -**Library Management:**
+  **Library Management:**
   - CRUD operations for libraries
   - Inventory management
   - Book assignment to libraries
 
-  -**Borrowing System:**
+  **Borrowing System:**
   - Borrow books with due dates and charges
   - Return books
 
-  -**Multilingual Support:**
+  **Multilingual Support:**
   - English and Hindi translations
   - Language selection via Accept-Language header
 
-  -**Error Handling:**
+  **Error Handling:**
   - Custom error handling middleware
   - Consistent error responses
 
@@ -82,3 +83,8 @@
 
 6. **Access the web page**:
     Open your browser and go to [http://localhost:4200](http://localhost:4200) to access the tool.
+
+## API Reference
+
+## Deployment
+    [Live Demo Link](Comming Soon)
