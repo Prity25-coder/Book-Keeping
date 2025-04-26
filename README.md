@@ -3,7 +3,7 @@
   - This is Book-keeping inventory management for libraries backend application.
 
 
-## 🐱‍🏍Features
+## 🐱‍🏍🔅🔸Features
   **Authentication & Authorization:**
   - Role-based access control (author, borrower, admin)
   - Protected routes with middleware
@@ -37,9 +37,9 @@
 
 
 
-## Local Setup
+## 🖥️📂Local Setup
 
-### Prerequisites
+### ⚙️Prerequisites
 - **Node.js** and **npm** must be installed on your local machine.
   - Install Node.js from [here](https://nodejs.org/)
   - Install npm: `npm install `
@@ -84,7 +84,10 @@
 6. **Access the web page**:
     Open your browser and go to [http://localhost:4200](http://localhost:4200) to access the tool.
 
-## API Reference
+## 🌐API Reference
+    The API documentation is automatically generated using Swagger and can be accessed at [/api-docs] endpoint when the server is running.
 
-## Deployment
+
+
+## 🧿Deployment
     [Live Demo Link](Comming Soon)
