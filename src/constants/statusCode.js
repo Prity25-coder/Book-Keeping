@@ -1,4 +1,4 @@
-const RESPONSE_CODE = Object.freeze({
+const STATUS_CODE = Object.freeze({
   OK: 200,
   CREATED: 201,
   BAD_REQUEST: 400,
@@ -7,4 +7,4 @@ const RESPONSE_CODE = Object.freeze({
   INTERNAL_SERVER_ERROR: 500,
 });
 
-export default RESPONSE_CODE;
+export default STATUS_CODE;

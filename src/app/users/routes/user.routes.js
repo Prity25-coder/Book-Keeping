@@ -1,9 +1,47 @@
 import { Router } from "express";
-import { registerUser, loginUser } from "../controllers/user.controller.js";
+import authController from "../controllers/user.controller.js";
 
-const userRouter = Router();
+import registerValidator from "../validators/register.validator.js";
+import loginValidator from "../validators/login.validator.js";
 
-userRouter.post("/register", registerUser);
-userRouter.post("/login", loginUser);
+import resetPassword from "../validators/resetPassword.validator.js";
+import isLoggedIn from "../middlewares/isLoggedin.js";
+import jwtAuth from "../../middlewares/jwtAuth.middlewares.js";
 
-export default userRouter;
+const authRouter = Router();
+
+// /api/users
+
+authRouter.get("/", authController.getAllUsers)
+
+authRouter.post(
+  "/register",
+  registerValidator,
+  isLoggedIn,
+
+  authController.postRegister
+);
+
+authRouter.post("/login", isLoggedIn, loginValidator, authController.postLogin);
+
+// note: important do not use get method to logout
+authRouter.post("/logout", authController.postLogoutUser);
+
+authRouter.patch("/update", jwtAuth, authController.postUpdateUser);
+
+authRouter.post(
+  "/request-reset-password",
+  authController.postRequestResetPassword
+);
+
+authRouter.get("/token-validate", authController.getResetPasswordTokenValidity);
+
+authRouter.patch(
+  "/reset-password",
+  resetPassword,
+  authController.postResetPassword
+);
+
+authRouter.delete("/delete-user", jwtAuth, authController.postDeleteUser);
+
+export default authRouter;
