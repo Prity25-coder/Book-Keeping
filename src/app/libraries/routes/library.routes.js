@@ -1,36 +1,28 @@
-// import { Router } from "express";
-// import {
-//   getLibraries,
-//   getLibrary,
-//   createLibrary,
-//   updateLibrary,
-//   deleteLibrary,
-//   getLibraryInventory,
-//   addBookToInventory,
-//   removeBookFromInventory,
-// } from "../controllers/library.controller.js";
+import { Router } from "express";
+import libraryController from "../controllers/library.controller.js";
 
-// const libraryRouter = Router();
+const libraryRouter = Router();
 
-// libraryRouter.get("/", getLibraries);
-// libraryRouter.post("/", authorizeRoles("admin"), createLibrary);
+// /api/libraries
 
-// libraryRouter.get("/:id", getLibrary);
-// libraryRouter.put("/:id", authorizeRoles("admin"), updateLibrary);
-// libraryRouter.delete("/:id", authorizeRoles("admin"), deleteLibrary);
+libraryRouter.get("/", libraryController.getLibraries);
 
-// // Inventory
-// libraryRouter.get("/:id/inventory", getLibraryInventory);
-// libraryRouter.post(
-//   "/:id/inventory",
-//   authorizeRoles("admin"),
-//   addBookToInventory
-// );
+libraryRouter.get("/:id", libraryController.getLibrary);
 
-// libraryRouter.delete(
-//   "/:id/inventory/:bookId",
-//   authorizeRoles("admin"),
-//   removeBookFromInventory
-// );
+libraryRouter.post("/", libraryController.createLibrary);
 
-// export default libraryRouter;
+libraryRouter.put("/:id", libraryController.updateLibrary);
+
+libraryRouter.delete("/:id", libraryController.deleteLibrary);
+
+// Library Inventory routes
+libraryRouter.get(":id/inventory", libraryController.getLibraryInventory);
+
+libraryRouter.post(":id/inventory", libraryController.addBookToInventory);
+
+libraryRouter.delete(
+  ":id/inventory/:bookId",
+  libraryController.removeBookFromInventory
+);
+
+export default libraryRouter;

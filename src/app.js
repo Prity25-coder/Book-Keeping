@@ -8,10 +8,11 @@ import helmet from "helmet";
 import MongoStore from "connect-mongo";
 import mongoose from "mongoose";
 import { loggerMiddleware } from "./common/index.js";
+import bookRouter from "./app/books/routes/book.routes.js";
+import libraryRouter from "./app/libraries/routes/library.routes.js";
 
 // create app
 const app = express();
-
 
 // Create session store
 const store = MongoStore.create({
@@ -30,17 +31,17 @@ app.use(
     saveUninitialized: false,
     store: MongoStore.create({
       mongoUrl: ENV_CONFIG.mongoUri,
-      dbName: ENV_CONFIG.dbName, // 👈 Optional but recommended
+      dbName: ENV_CONFIG.dbName, // Optional but recommended
       collectionName: "sessions",
       ttl: 24 * 60 * 60, // 1 day in seconds
-      autoRemove: 'native', // 👈 Optional - native MongoDB TTL index
+      autoRemove: "native", // Optional - native MongoDB TTL index
     }),
     cookie: {
       maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
       httpOnly: true,
-      // secure: process.env.NODE_ENV === 'production', // 👈 Set to true in production
-      sameSite: 'lax' // 👈 Recommended for CSRF protection
-    }
+      // secure: process.env.NODE_ENV === 'production', // Set to true in production
+      sameSite: "lax", //Recommended for CSRF protection
+    },
   })
 );
 
@@ -80,6 +81,12 @@ app.use(loggerMiddleware);
 
 // User routes
 app.use("/api/users", userRouter);
+
+// Book routes
+app.use("/api/books", bookRouter);
+
+// Libraries and Library Inventory routes
+app.use("/api/libraries", libraryRouter);
 
 // Libraries and Library Inventory routes
 // app.use("/api/libraries", libraryRouter)
