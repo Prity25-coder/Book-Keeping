@@ -2,7 +2,7 @@ import Library from "../../libraries/models/library.schema.js";
 import User from "../../users/models/user.schema.js";
 import Book from "../models/book.schema.js";
 
-// import { uploadImage, deleteImage } from "../utils/firebaseStorage.js"; // TODO
+import { uploadImage, deleteImage } from "../../../config/firebaseConfig.js"; // TODO
 
 
 class BookService {
@@ -35,7 +35,7 @@ class BookService {
 
     let imageUrl = "";
     if (file) {
-      imageUrl = await uploadImage(file);
+      imageUrl = await uploadImage(file); //todo
     }
 
     const book = await Book.create({

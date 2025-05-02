@@ -12,7 +12,14 @@ const {
   JWT_REFRESH_TIME_OUT,
   EMAIL_USER_NAME,
   EMAIL_USER_PASSWORD,
-  CLIENT_URL
+  CLIENT_URL,
+  API_KEY,
+  AUTH_DOMAIN,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+  MESSAGEING_SENDER_ID,
+  APP_ID,
+  MEASUREMENT_ID
 } = process.env;
 
 const ENV_CONFIG = Object.freeze({
@@ -29,7 +36,16 @@ const ENV_CONFIG = Object.freeze({
   jwtRefreshTimeOut: String(JWT_REFRESH_TIME_OUT),
   emailUser: String(EMAIL_USER_NAME),
   emailPass: String(EMAIL_USER_PASSWORD),
-  clientUrl: String(CLIENT_URL)
+  clientUrl: String(CLIENT_URL),
+  apiKey: String(API_KEY),
+  authDomain: String(AUTH_DOMAIN),
+  projectId: String(PROJECT_ID),
+  storageBucket: String(STORAGE_BUCKET),
+  messagingSenderId: String(MESSAGEING_SENDER_ID),
+  appId: String(APP_ID),
+  measurementId: String(MEASUREMENT_ID),
+
+
 });
 
 export default ENV_CONFIG;

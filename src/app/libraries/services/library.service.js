@@ -2,7 +2,7 @@ import STATUS_CODE from "../../../constants/statusCode.js";
 import Book from "../../books/models/book.schema.js";
 import User from "../../users/models/user.schema.js";
 import Library from "../models/library.schema.js";
-// deleteFromFirebase
+import { uploadImage, deleteImage } from "../../../config/firebaseConfig.js";
 
 class LibraryService {
   async getAllLibraries() {
