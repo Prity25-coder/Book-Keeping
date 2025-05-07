@@ -27,10 +27,6 @@
   - Borrow books with due dates and charges
   - Return books
 
-  **Multilingual Support:**
-  - English and Hindi translations
-  - Language selection via Accept-Language header
-
   **Error Handling:**
   - Custom error handling middleware
   - Consistent error responses

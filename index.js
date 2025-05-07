@@ -5,7 +5,7 @@ import ENV_CONFIG from "./src/config/env.config.js";
 import { connectMongoose } from "./src/config/mongooseConfig.js";
 
 const { port } = ENV_CONFIG;
-console.log("port", port);
+// console.log("port", port);
 
 
 const server = app.listen(port, () => {

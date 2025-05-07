@@ -2,8 +2,7 @@ import Library from "../../libraries/models/library.schema.js";
 import User from "../../users/models/user.schema.js";
 import Book from "../models/book.schema.js";
 
-import { uploadImage, deleteImage } from "../../../config/firebaseConfig.js"; // TODO
-
+import { uploadImage, deleteImage } from "../../../config/firebaseConfig.js";
 
 class BookService {
   async getAllBooks() {
@@ -22,6 +21,10 @@ class BookService {
 
   async createBook(data, file) {
     const { title, description, author, library } = data;
+
+    if (!title || !description || !author || !library) {
+      throw new Error("Missing required book fields");
+    }
 
     const authorUser = await User.findById(author);
     if (!authorUser || authorUser.role !== "author") {
