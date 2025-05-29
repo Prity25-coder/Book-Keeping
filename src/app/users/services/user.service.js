@@ -49,7 +49,7 @@ class UserService {
 
     // 3. create user object
     const user = new User({ userName, email, password: hashedPassword });
-    user.role = USER_ROLE.DOCTOR;
+    user.role = USER_ROLE.ADMIN;
 
     // 4. save user
     await user.save();

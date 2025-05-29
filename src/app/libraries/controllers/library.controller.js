@@ -13,7 +13,7 @@ class LibraryController {
   });
 
   getLibrary = asyncHandler(async (req, res) => {
-    const data = await libraryService.getLibraryWithBooks(req.params.id);
+    const data = await libraryService.getLibraryById(req.params.id);
     res.json({ success: true, data });
   });
 

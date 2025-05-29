@@ -83,7 +83,8 @@
 ## 🌐API Reference
     The API documentation is automatically generated using Swagger and can be accessed at [/api-docs] endpoint when the server is running.
 
-
+    ###Postman collection url:-
+        
 
 ## 🧿Deployment
     [Live Demo Link](Comming Soon)

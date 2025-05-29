@@ -21,13 +21,14 @@ class BookService {
 
   async createBook(data, file) {
     const { title, description, author, library } = data;
-
+    console.log("author:", author);
+    
     if (!title || !description || !author || !library) {
       throw new Error("Missing required book fields");
     }
 
     const authorUser = await User.findById(author);
-    if (!authorUser || authorUser.role !== "author") {
+    if (!authorUser || authorUser.role !== "AUTHOR") {
       throw new Error("Invalid author");
     }
 
